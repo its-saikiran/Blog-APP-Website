@@ -17,7 +17,7 @@ const BlogState = ({ children }) => {
 
   const getAllBlogs = async () => {
     try {
-      const result = await axios.get('http://localhost:9000/user/blog/all')
+      const result = await axios.get('/user/blog/all')
       // console.log('----> ', result)
       const userId = result.data.userId;
       // console.log(result.data.data)
@@ -58,7 +58,7 @@ const BlogState = ({ children }) => {
   const createBlogFun = async (data) => {
     // console.log(data)
     try {
-      const result = await axios.post('http://localhost:9000/user/create', data)
+      const result = await axios.post('/user/create', data)
       // console.log(result)
       setCreateBlogMsg(result.data.msg)
       setTimeout(() => {
@@ -87,7 +87,7 @@ const BlogState = ({ children }) => {
 
   const sendReactionFun = async (blogId, reaction) => {
     try {
-      await axios.post(`http://localhost:9000/user/reaction/${blogId}`, reaction)
+      await axios.post(`/user/reaction/${blogId}`, reaction)
       getAllBlogs()
     } catch (error) {
       // console.log(error.response.status)

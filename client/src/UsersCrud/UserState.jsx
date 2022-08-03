@@ -13,7 +13,7 @@ const UserState = ({ children }) => {
     const [userError, setUserError] = useState();
 
     const getUserFun = async () => {
-        const result = await axios.get(`http://localhost:9000/${3}`)
+        const result = await axios.get(`/${3}`)
         setUser(result)
     };
 
@@ -21,7 +21,7 @@ const UserState = ({ children }) => {
     const registerFun = async (data) => {
         // console.log(data)
         try {
-            const result = await axios.post('http://localhost:9000/user/register', data)
+            const result = await axios.post('/user/register', data)
             // console.log(result.status)
             setRegisterMsg(result.data.msg)
             setTimeout(() => {
@@ -50,7 +50,7 @@ const UserState = ({ children }) => {
     // OTP...
     const otpFun = async (data) => {
         try {
-            const result = await axios.post('http://localhost:9000/user/otp', data)
+            const result = await axios.post('/user/otp', data)
             setOtpMsg(result.data.msg)
             setTimeout(() => {
                 navigate('/login')
@@ -78,7 +78,7 @@ const UserState = ({ children }) => {
     // LOGIN...
     const loginFun = async (data) => {
         try {
-            const result = await axios.post('http://localhost:9000/user/login', data)
+            const result = await axios.post('/user/login', data)
             setLoginMsg(result.data.msg)
             setTimeout(() => {
                 navigate('/')
@@ -108,7 +108,7 @@ const UserState = ({ children }) => {
     // UPDATE PROFILE...
     const updateUserFun = async (data) => {
         try {
-            const result = await axios.post('http://localhost:9000/user/update', data)
+            const result = await axios.post('/user/update', data)
             setUser(result)
         } catch (error) {
             console.log(error)
@@ -119,7 +119,7 @@ const UserState = ({ children }) => {
     const logoutFun = async () => {
         // console.log('log out fun')
         try {
-            await axios.delete('http://localhost:9000/user/logout')
+            await axios.delete('/user/logout')
             navigate('/')
         } catch (error) {
             // console.log(error.response.status)
