@@ -1,0 +1,10 @@
+.profile-menu .dropdown-menu {
+    right: 0;
+    left: unset;
+}
+
+.fa-user{
+    background-color: rgb(204, 199, 199);
+    border: 8px solid rgb(204, 199, 199);
+    border-radius: 50%;
+}
